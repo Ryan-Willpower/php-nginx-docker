@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx-conf:/etc/nginx/conf.d
+      - ./www:/var/app
+
+  php:
+    container_name: php
+    image: php:7.2-fpm
+    volumes:
+      - ./www:/var/app
